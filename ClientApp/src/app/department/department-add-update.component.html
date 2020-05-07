@@ -1,0 +1,43 @@
+<div>
+  <a [routerLink]="['/department']"> Back</a>
+</div>
+<br />
+<h2> {{header}}</h2>
+<hr>
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="OnSubmit(form,$event)" fxFlex fxLayout="row" fxLayout.xs="column">
+    <div class="form-content">
+      <mat-form-field floatLabel="Always">
+        <mat-label>Department Name</mat-label>
+        <input matInput formControlName="name" width="100" required>
+        <!--<mat-error *ngIf="form.controls['name'].vsalid">Department name is required..!!</mat-error>-->
+      </mat-form-field>
+      <br>
+
+      <mat-form-field floatLabel="Always">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button [disabled]="!form.valid" class="primary">
+          Submit
+        </button>
+
+        <button mat-raised-button class="warn" type="button" (click)="reset()">
+          <!--form.reset()-->
+          Reset
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<ng-template #messageDialog>
+  <h2 matDialogTitle>{{model.title}}</h2>
+  <p matDialogContent><em>{{model.content}}</em></p>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose>Dismiss</button>
+  </mat-dialog-actions>
+</ng-template>

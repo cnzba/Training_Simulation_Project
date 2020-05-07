@@ -1,0 +1,9 @@
+<body>
+  <app-nav-menu></app-nav-menu>
+  <div class="spinner" style="text-align:center" *ngIf="loading">
+    <span class="oi oi-clock oi-spin"></span>
+  </div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</body>

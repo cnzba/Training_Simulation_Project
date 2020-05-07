@@ -1,0 +1,60 @@
+<form class="form1">
+  <div>
+    <a [routerLink]="['/']"> Back</a>
+  </div>
+  <br />
+  <div>
+    <a id="createNew" class="btn btn-lg btn-success" [routerLink]="['/department/add']">
+      Create New Department
+    </a>
+  </div><br />
+  <table class="table table-bordered table-striped table-hover table-light">
+    <thead class="thead-dark">
+      <tr>
+        <th mat-sort-header="dateCreated" style="width: 10%">Department Name</th>
+        <th mat-sort-header="clientName" style="width: 10%">Description</th>
+        <th mat-sort-header="clientName" style="width: 10%">Delete</th>
+        <th mat-sort-header="clientName" style="width: 10%">Edit</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let dept of departmentList">
+        <ng-container>
+          <td style="width: 10%">{{dept.name}}</td>
+          <td style="width: 10%">{{dept.description}}</td>
+
+          <td>
+            <button class="btn btn-sm" (click)="deleteDepartment(dept.id)"> <span class="oi oi-trash"></span></button>
+          </td>
+
+          <td>
+            <a [routerLink]="['/department/update/',dept.id]"> Edit</a>
+          </td>
+
+        </ng-container>
+
+      </tr>
+    </tbody>
+  </table>
+
+</form>
+
+
+<ng-template #messageDialog>
+  <h2 matDialogTitle>{{model.title}}</h2>
+  <p matDialogContent><em>{{model.content}}</em></p>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose>Dismiss</button>
+  </mat-dialog-actions>
+</ng-template>
+
+
+<ng-template #confirmDialog>
+  <h2 matDialogTitle>Confirm</h2>
+  <p matDialogContent><em>Are you sure you want to delete this department?</em></p>
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="yesClick()">Yes</button>
+    <button mat-button matDialogClose>No</button>
+  </mat-dialog-actions>
+</ng-template>
