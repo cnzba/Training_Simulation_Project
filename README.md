@@ -8,4 +8,4 @@ the flow of the project.
      Written steps: https://cbanewzealand.visualstudio.com/Training/_wiki/wikis/Training.wiki/19/Development-Environment-Setup
  
  2.) Start development:
-   https://cbanewzealand.visualstudio.com/Training/_wiki/wikis/Training.wiki/17/Training-Plan
+  https://github.com/cnzba/Training_Simulation_Project/wiki
